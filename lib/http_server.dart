@@ -16,7 +16,7 @@ runServer() async {
 			case '/status/':
 				if(!apiinfo[0]){
 					sendWrongApiKey(request.response);
-					log("Wrong apikey from "+request.connectionInfo.remoteAddress.address);
+					log("Wrong apikey from "+request.headers.value('X-Forwarded-For'));
 					break;
 				}
 				sendStatus(request.response, request.uri.queryParameters['apikey'], apiinfo[1]);
