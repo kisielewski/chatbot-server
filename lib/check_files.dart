@@ -28,6 +28,7 @@ bool checkFiles(){
 	if(database.existsSync() == false){
 		database.createSync(recursive: true);
 		firstRecord();
+		log("Create database and add first record");
 	}
 	if(database.existsSync() == false){
 		log("Error: Database file not created");
