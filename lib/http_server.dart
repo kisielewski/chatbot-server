@@ -28,7 +28,7 @@ runServer() async {
 					log("Wrong apikey from "+request.connectionInfo.remoteAddress.address);
 					break;
 				}
-				sendAnswer(request.response, request.uri.queryParameters['userquestion'], request.uri.queryParameters['useranswer'], apiinfo[1]);
+				sendAnswer(request, apiinfo[1]);
 				logAnswer(request);
 				break;
 			default:
