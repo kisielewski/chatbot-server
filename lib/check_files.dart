@@ -3,6 +3,7 @@ import 'dart:io';
 import 'package:chatbot_server/global.dart';
 import 'package:chatbot_server/formating.dart';
 import 'package:chatbot_server/logfile.dart';
+import 'package:chatbot_server/database.dart';
 
 bool checkFiles(){
 	var logs = new Directory('logs');
