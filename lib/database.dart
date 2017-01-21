@@ -9,7 +9,3 @@ void firstRecord(){
 void insertAnswer(String key, String val){
 	database.writeAsStringSync(key+';'+val+';u'+'\r\n', mode: FileMode.APPEND);
 }
-
-String selectAnswer(String data){
-	return "Dziala";
-}
