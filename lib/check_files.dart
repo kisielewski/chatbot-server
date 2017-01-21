@@ -1,7 +1,6 @@
 import 'dart:io';
 
 import 'package:chatbot_server/global.dart';
-import 'package:chatbot_server/formating.dart';
 import 'package:chatbot_server/logfile.dart';
 import 'package:chatbot_server/database.dart';
 
@@ -11,8 +10,7 @@ bool checkFiles(){
 	if(logs.existsSync() == false){
 		print("Error: Directory 'logs' not created");
 		return false;
-	}	
-	logfile = new File(logfileName());
+	}
 	logfile.createSync(recursive: true);
 	if(logfile.existsSync()){
 		print("Log file created");
@@ -34,5 +32,5 @@ bool checkFiles(){
 		log("Error: Database file not created");
 		return false;
 	}
-	log("Check files done");
+	log("Files checked");
 }
