@@ -2,6 +2,7 @@ import 'dart:io';
 import 'dart:convert';
 
 import 'package:chatbot_server/global.dart';
+import 'package:chatbot_server/database.dart';
 
 sendWrongApiKey(HttpResponse response) {
 	var map = new Map();
@@ -31,13 +32,31 @@ sendStatus(HttpResponse response, String apikey, String api){
 	response.close();
 }
 
-sendAnswer(HttpResponse response, String question, String answer, String api){
+sendAnswer(HttpRequest request, String api){
 	var map = new Map();
+	if(checkIsNull(request.uri, 'useranswer')){
+		map['status'] = 'ERROR';
+		map['info'] = "useranswer is null";
+		request.response..writeln(JSON.encode(map));
+		request.response.close();
+		return;
+	}
 	map['status'] = 'OK';
 	map['data'] = new Map();
-	map['data']['botanswer'];
-	map['data']['botquestion'];
-	response.headers.add("Access-Control-Allow-Origin", api);
-	response..writeln(JSON.encode(map));
-	response.close();
+	map['data']['botanswer'] = selectAnswer(request.uri.queryParameters['useranswer']);
+	map['data']['userquestion'] = map['data']['botanswer'];
+	request.response.headers.add("Access-Control-Allow-Origin", api);
+	request.response..writeln(JSON.encode(map));
+	request.response.close();
+	if(!checkIsNull(request.uri, 'userquestion')) insertAnswer(request.uri.queryParameters['userquestion'], request.uri.queryParameters['useranswer']);
+}
+
+bool checkIsNull(Uri uri, String key){
+	if(!uri.queryParameters.containsKey(key)) return true;
+	if(uri.queryParameters[key] == '') return true;
+	if(uri.queryParameters[key] == null) return true;
+	if(uri.queryParameters[key] == 'null') return true;
+	if(uri.queryParameters[key] == 'Null') return true;
+	//if(uri.queryParameters[key].isEmty) return true;
+	return false;
 }
