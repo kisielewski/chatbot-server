@@ -13,8 +13,6 @@ String selectAnswer(String data){
 	for(var i = 0; i < list.length; i++){
 		if(list[i].split(";")[0].length >= 3){
 			current = testJaccarda(data, list[i].split(";")[0].toLowerCase());
-			print(current.toString());
-			print(maximum.toString());
 			if(current > maximum){
 				maximum = current;
 				answers.clear();
@@ -23,7 +21,6 @@ String selectAnswer(String data){
 		} 
 	}
 	var rng = new Random();
-	print(rng.nextInt(answers.length));
 	return answers[rng.nextInt(answers.length)];
 }
 
@@ -40,18 +37,14 @@ String selectEqual(String data){
 }
 
 double testJaccarda(String a, String b){
-	print(a);
-	print(b);
 	var isB = new List(b.length-1);
 	for(var i = 0; i < isB.length; i++) isB[i] = true;
-	print(isB[0]);
 	int sum = 0;
 	for(var i = 0; i < a.length-2; i++){
 		for(var j = 0; j < b.length-2; j++){
 			if(a[i]==b[j] && a[i+1]==b[j+1] && a[i+2]==b[j+2] && isB[j]){
 				sum++;
 				isB[j] = false;
-				print("SUM");
 			}
 		}
 	}
