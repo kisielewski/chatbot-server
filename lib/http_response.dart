@@ -6,7 +6,7 @@ import 'package:chatbot_server/global.dart';
 sendWrongApiKey(HttpResponse response) {
 	var map = new Map();
 	map['status'] = 'ERROR';
-	map['info'] = "Wrong apikey";
+	map['info'] = "wrong apikey";
 	response..writeln(JSON.encode(map));
 	response.close();
 }
@@ -14,7 +14,7 @@ sendWrongApiKey(HttpResponse response) {
 sendNotFound(HttpResponse response){
 	var map = new Map();
 	map['status'] = 'ERROR';
-	map['info'] = "Wrong address";
+	map['info'] = "wrong address";
 	response..writeln(JSON.encode(map));
 	response.close();
 }
