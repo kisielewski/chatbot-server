@@ -12,7 +12,7 @@ String selectAnswer(String data){
 	var list  = database.readAsLinesSync();
 	for(var i = 0; i < list.length; i++){
 		if(list[i].split(";")[0].length >= 3){
-			current = testJaccarda(data, list[i].split(";")[0].toLowerCase());
+			current = jaccardIndex(data, list[i].split(";")[0].toLowerCase());
 			if(current > maximum){
 				maximum = current;
 				answers.clear();
@@ -36,7 +36,7 @@ String selectEqual(String data){
 	return answers[rng.nextInt(answers.length)];
 }
 
-double testJaccarda(String a, String b){
+double jaccardIndex(String a, String b){
 	var isB = new List(b.length-1);
 	for(var i = 0; i < isB.length; i++) isB[i] = true;
 	int sum = 0;
