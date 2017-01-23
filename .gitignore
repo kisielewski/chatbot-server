@@ -2,3 +2,5 @@ pubspec.lock
 .packages
 apikeys.chatbot
 database.chatbot
+chatbot-server.iml
+.idea/*
