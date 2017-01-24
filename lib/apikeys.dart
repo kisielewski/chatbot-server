@@ -1,7 +1,4 @@
-import 'dart:io';
-
 import 'package:chatbot_server/global.dart';
-import 'package:chatbot_server/formating.dart';
 
 List checkApiKey(String apikey){
 	bool is_apikey = false;
