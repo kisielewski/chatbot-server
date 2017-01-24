@@ -33,4 +33,5 @@ bool checkFiles(){
 		return false;
 	}
 	log("Files checked");
+	return true;
 }
