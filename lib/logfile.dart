@@ -3,7 +3,7 @@ import 'dart:io';
 import 'package:chatbot_server/global.dart';
 import 'package:chatbot_server/formating.dart';
 
-void log(String data) async {
+void log(String data) {
 	logfile.writeAsStringSync(currentDate()+';'+data+'\r\n', mode: FileMode.APPEND);
 	print(data);
 }
