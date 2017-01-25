@@ -1,12 +1,12 @@
 import 'dart:io';
 
-var apikeys = new File('apikeys.chatbot');
+File apikeys = new File('apikeys.chatbot');
 
 List checkApiKey(String apikey){
 	bool is_apikey = false;
 	String address = '';
-	var list  = apikeys.readAsLinesSync();
-	for(var i = 0; i < list.length; i++){
+	List<String> list  = apikeys.readAsLinesSync();
+	for(int i = 0; i < list.length; i++){
 		if(list[i].split(";")[0] == apikey){
 			is_apikey = true;
 			address = list[i].split(";")[1];

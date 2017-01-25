@@ -1,6 +1,6 @@
 import 'dart:io';
 
-var database = new File('database.chatbot');
+File database = new File('database.chatbot');
 
 void firstRecord(){
 	database.writeAsStringSync("Who are you?;I'm ChatBot.;v"+'\r\n', mode: FileMode.APPEND);

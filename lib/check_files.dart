@@ -2,9 +2,10 @@ import 'dart:io';
 
 import 'package:chatbot_server/logfile.dart';
 import 'package:chatbot_server/database.dart';
+import 'package:chatbot_server/apikeys.dart';
 
 bool checkFiles(){
-	var logs = new Directory('logs');
+	Directory logs = new Directory('logs');
 	logs.createSync(recursive: true);
 	if(logs.existsSync() == false){
 		print("Error: Directory 'logs' not created");

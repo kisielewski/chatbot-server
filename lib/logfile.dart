@@ -2,7 +2,7 @@ import 'dart:io';
 
 import 'package:chatbot_server/formating.dart';
 
-var logfile = new File(logfileName());
+File logfile = new File(logfileName());
 
 void log(String data) {
 	logfile.writeAsStringSync(currentDate()+';'+data+'\r\n', mode: FileMode.APPEND);

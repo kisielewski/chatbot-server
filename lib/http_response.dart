@@ -9,7 +9,7 @@ const AUTHOR = 'Patryk Kisielewski';
 const BOT = 'ONLINE';
 
 sendWrongApiKey(HttpResponse response) {
-	var map = new Map();
+	Map<String, String> map = new Map();
 	map['status'] = 'ERROR';
 	map['info'] = "wrong apikey";
 	response..writeln(JSON.encode(map));
@@ -17,7 +17,7 @@ sendWrongApiKey(HttpResponse response) {
 }
 
 sendNotFound(HttpResponse response){
-	var map = new Map();
+	Map<String, String> map = new Map();
 	map['status'] = 'ERROR';
 	map['info'] = "wrong address";
 	response..writeln(JSON.encode(map));
@@ -25,7 +25,7 @@ sendNotFound(HttpResponse response){
 }
 
 sendStatus(HttpResponse response, String apikey, String api){
-	var map = new Map();
+	Map<String, String> map = new Map();
 	map['status'] = 'OK';
 	map['bot'] = BOT;
 	map['server'] = new Map();
@@ -37,7 +37,7 @@ sendStatus(HttpResponse response, String apikey, String api){
 }
 
 sendAnswer(HttpRequest request, String api){
-	var map = new Map();
+	Map<String, String> map = new Map();
 	if(checkIsNull(request.uri, 'useranswer')){
 		map['status'] = 'ERROR';
 		map['info'] = "useranswer is null";

@@ -12,7 +12,7 @@ runServer() async {
 	log("Start http server on port "+PORT.toString());
 	await for (HttpRequest request in server) {
 		final String path = request.uri.path;
-		var apiinfo = checkApiKey(request.uri.queryParameters['apikey']);
+		List apiinfo = checkApiKey(request.uri.queryParameters['apikey']);
 		switch (path) {
 			case '/status':
 			case '/status/':
