@@ -9,7 +9,7 @@ const PORT = 4041;
 
 runServer() async {
 	server = await HttpServer.bind(InternetAddress.ANY_IP_V4, PORT);
-	log("Start http server on port "+PORT.toString());
+	log("server|start|"+PORT.toString());
 	await for (HttpRequest request in server) {
 		final String path = request.uri.path;
 		List apiinfo = checkApiKey(request.uri.queryParameters['apikey']);
