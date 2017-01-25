@@ -14,6 +14,6 @@ void logAnswer(HttpRequest request){
 	if(request.uri.queryParameters.containsKey('userquestion')) data += request.uri.queryParameters['userquestion'];
 	data += '|';
 	if(request.uri.queryParameters.containsKey('useranswer')) data += request.uri.queryParameters['useranswer'];
-	data += '|'+request.headers.value('X-Forwarded-For');
+	data += '|'+request.headers.value('X-Forwarded-For').toString();
 	log(data);
 }
