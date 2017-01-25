@@ -17,7 +17,7 @@ runServer() async {
 			case '/status':
 			case '/status/':
 				if(!apiinfo[0]){
-					sendWrongApiKey(request.response);
+					sendWrongApikey(request);
 					log("Wrong apikey from "+request.headers.value('X-Forwarded-For').toString());
 					break;
 				}
@@ -26,7 +26,7 @@ runServer() async {
 			case '/ask':
 			case '/ask/':
 				if(!apiinfo[0]){
-					sendWrongApiKey(request.response);
+					sendWrongApikey(request);
 					log("Wrong apikey from "+request.headers.value('X-Forwarded-For').toString());
 					break;
 				}

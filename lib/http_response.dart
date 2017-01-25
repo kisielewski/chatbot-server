@@ -8,12 +8,11 @@ const VERSION = '0.0.0 testing';
 const AUTHOR = 'Patryk Kisielewski';
 const BOT = 'ONLINE';
 
-sendWrongApiKey(HttpResponse response) {
+sendWrongApikey(HttpRequest request) {
 	Map<String, String> map = new Map();
 	map['status'] = 'ERROR';
 	map['info'] = "wrong apikey";
-	response..writeln(JSON.encode(map));
-	response.close();
+  request.response.writeln(JSON.encode(map)).close();
 }
 
 sendNotFound(HttpResponse response){
