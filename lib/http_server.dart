@@ -29,7 +29,6 @@ runServer() async {
 					break;
 				}
 				sendAnswer(request, apiinfo[1]);
-				logAnswer(request);
 				break;
 			default:
 				sendNotFound(request.response);

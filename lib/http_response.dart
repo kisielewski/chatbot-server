@@ -55,6 +55,7 @@ sendAnswer(HttpRequest request, String api){
 	request.response..writeln(JSON.encode(map));
 	request.response.close();
 	if(!checkIsNull(request.uri, 'userquestion')) insertAnswer(request.uri.queryParameters['userquestion'], request.uri.queryParameters['useranswer']);
+  logAnswer(request);
 }
 
 bool checkIsNull(Uri uri, String key){
