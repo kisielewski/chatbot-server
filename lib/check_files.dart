@@ -8,30 +8,30 @@ bool checkFiles(){
 	Directory logs = new Directory('logs');
 	logs.createSync(recursive: true);
 	if(logs.existsSync() == false){
-		print("Error: Directory 'logs' not created");
+		print("files|error|directory 'logs' not created");
 		return false;
 	}
 	logfile.createSync(recursive: true);
 	if(logfile.existsSync()){
-		print("Log file created");
+		print("files|created|log");
 	} else {
-		print("Error: Log file not created");
+		print("files|error|log file not created");
 		return false;
 	}
 	apikeys.createSync(recursive: true);
 	if(apikeys.existsSync() == false){
-		log("Error: ApiKeys file not created");
+		log("files|error|apikeys file not created");
 		return false;
 	}
 	if(database.existsSync() == false){
 		database.createSync(recursive: true);
 		firstRecord();
-		log("Create database and add first record");
+		log("files|create|database and add first record");
 	}
 	if(database.existsSync() == false){
-		log("Error: Database file not created");
+		log("files|error|database file not created");
 		return false;
 	}
-	log("Files checked");
+	log("files|checked");
 	return true;
 }
