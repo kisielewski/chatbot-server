@@ -10,13 +10,13 @@ String selectAnswer(String data){
 	double current;
 	List<String> list  = database.readAsLinesSync();
 	for(int i = 0; i < list.length; i++){
-		if(list[i].split(";")[0].length >= 3){
-			current = jaccardIndex(data, list[i].split(";")[0].toLowerCase());
+		if(list[i].split("|")[0].length >= 3){
+			current = jaccardIndex(data, list[i].split("|")[0].toLowerCase());
 			if(current > maximum){
 				maximum = current;
 				answers.clear();
 			} else if(current < maximum) continue;
-			answers.add(list[i].split(";")[1]);
+			answers.add(list[i].split("|")[1]);
 		} 
 	}
 	Random rng = new Random();
@@ -28,7 +28,7 @@ String selectEqual(String data){
 	List<String> answers = new List();
 	List<String> list  = database.readAsLinesSync();
 	for(int i = 0; i < list.length; i++){
-		if(list[i].split(";")[0].toLowerCase() == data) answers.add(list[i].split(";")[1]);
+		if(list[i].split("|")[0].toLowerCase() == data) answers.add(list[i].split("|")[1]);
 	}
 	Random rng = new Random();
 	if(answers.length == 0) return "Oh.";
