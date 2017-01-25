@@ -14,6 +14,12 @@ void logAnswer(HttpRequest request){
 	if(request.uri.queryParameters.containsKey('userquestion')) data += request.uri.queryParameters['userquestion'];
 	data += '|';
 	if(request.uri.queryParameters.containsKey('useranswer')) data += request.uri.queryParameters['useranswer'];
-	data += '|'+request.headers.value('X-Forwarded-For').toString();
+	data += '|'+getIPAddress(request);
 	log(data);
+}
+
+String getIPAddress(HttpRequest request){
+	if(request.headers.value('X-Forwarded-For') != null)
+		return request.headers.value('X-Forwarded-For').toString();
+	return request.connectionInfo.remoteAddress.address.toString();
 }

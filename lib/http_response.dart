@@ -15,7 +15,7 @@ sendWrongApikey(HttpRequest request) {
 	map['info'] = "wrong apikey";
 	request.response.writeln(JSON.encode(map));
 	request.response.close();
-	log("apikey|wrong|"+request.headers.value('X-Forwarded-For').toString());
+	log("apikey|wrong|"+getIPAddress(request));
 }
 
 sendNotFound(HttpResponse response){
