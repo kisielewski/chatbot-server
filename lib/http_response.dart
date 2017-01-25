@@ -13,7 +13,8 @@ sendWrongApikey(HttpRequest request) {
 	Map<String, String> map = new Map();
 	map['status'] = 'ERROR';
 	map['info'] = "wrong apikey";
-  request.response.writeln(JSON.encode(map)).close();
+  request.response.writeln(JSON.encode(map));
+  request.response.close();
   log("apikey|wrong|"+request.headers.value('X-Forwarded-For').toString());
 }
 
