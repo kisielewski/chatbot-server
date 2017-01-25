@@ -25,7 +25,7 @@ sendNotFound(HttpResponse response){
 }
 
 sendStatus(HttpResponse response, String apikey, String api){
-	Map<String, String> map = new Map();
+	Map map = new Map();
 	map['status'] = 'OK';
 	map['bot'] = BOT;
 	map['server'] = new Map();
@@ -37,7 +37,7 @@ sendStatus(HttpResponse response, String apikey, String api){
 }
 
 sendAnswer(HttpRequest request, String api){
-	Map<String, String> map = new Map();
+	Map map = new Map();
 	if(checkIsNull(request.uri, 'useranswer')){
 		map['status'] = 'ERROR';
 		map['info'] = "useranswer is null";
