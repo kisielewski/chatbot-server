@@ -3,6 +3,7 @@ import 'dart:convert';
 
 import 'package:chatbot_server/database.dart';
 import 'package:chatbot_server/bot_select.dart';
+import 'package:chatbot_server/log.dart';
 
 const VERSION = '0.0.0 testing';
 const AUTHOR = 'Patryk Kisielewski';
@@ -13,6 +14,7 @@ sendWrongApikey(HttpRequest request) {
 	map['status'] = 'ERROR';
 	map['info'] = "wrong apikey";
   request.response.writeln(JSON.encode(map)).close();
+  log("Wrong apikey from "+request.headers.value('X-Forwarded-For').toString());
 }
 
 sendNotFound(HttpResponse response){
