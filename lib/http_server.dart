@@ -1,9 +1,11 @@
 import 'dart:io';
 
-import 'package:chatbot_server/global.dart';
 import 'package:chatbot_server/logfile.dart';
 import 'package:chatbot_server/apikeys.dart';
 import 'package:chatbot_server/http_response.dart';
+
+HttpServer server;
+const PORT = 4041;
 
 runServer() async {
 	server = await HttpServer.bind(InternetAddress.ANY_IP_V4, PORT);

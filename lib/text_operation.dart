@@ -1,6 +1,6 @@
 import 'dart:math';
 
-import 'package:chatbot_server/global.dart';
+import 'package:chatbot_server/database.dart';
 
 String selectAnswer(String data){
 	if(data.length < 3) return selectEqual(data);

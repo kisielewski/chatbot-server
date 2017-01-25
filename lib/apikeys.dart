@@ -1,4 +1,6 @@
-import 'package:chatbot_server/global.dart';
+import 'dart:io';
+
+var apikeys = new File('apikeys.chatbot');
 
 List checkApiKey(String apikey){
 	bool is_apikey = false;

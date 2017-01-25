@@ -1,9 +1,12 @@
 import 'dart:io';
 import 'dart:convert';
 
-import 'package:chatbot_server/global.dart';
 import 'package:chatbot_server/database.dart';
 import 'package:chatbot_server/text_operation.dart';
+
+const VERSION = '0.0.0 testing';
+const AUTHOR = 'Patryk Kisielewski';
+const BOT = 'ONLINE';
 
 sendWrongApiKey(HttpResponse response) {
 	var map = new Map();
