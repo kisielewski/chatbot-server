@@ -10,9 +10,11 @@ const AUTHOR = 'Patryk Kisielewski';
 const BOT = 'ONLINE';
 
 void sendWrongApikey(HttpRequest request){
-	Map<String, String> map = new Map();
+	Map map = new Map();
 	map['status'] = 'ERROR';
-	map['info'] = "wrong apikey";
+	map['error'] = new Map();
+	map['error']['info'] = "wrong apikey";
+	map['error']['code'] = 1;
 	request.response.writeln(JSON.encode(map));
 	request.response.close();
 	log("apikey|wrong|"+getIPAddress(request));
