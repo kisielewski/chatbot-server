@@ -13,9 +13,9 @@ sendWrongApikey(HttpRequest request) {
 	Map<String, String> map = new Map();
 	map['status'] = 'ERROR';
 	map['info'] = "wrong apikey";
-  request.response.writeln(JSON.encode(map));
-  request.response.close();
-  log("apikey|wrong|"+request.headers.value('X-Forwarded-For').toString());
+	request.response.writeln(JSON.encode(map));
+	request.response.close();
+	log("apikey|wrong|"+request.headers.value('X-Forwarded-For').toString());
 }
 
 sendNotFound(HttpResponse response){
@@ -55,7 +55,7 @@ sendAnswer(HttpRequest request, String api){
 	request.response..writeln(JSON.encode(map));
 	request.response.close();
 	if(!checkIsNull(request.uri, 'userquestion')) insertAnswer(request.uri.queryParameters['userquestion'], request.uri.queryParameters['useranswer']);
-  logAnswer(request);
+	logAnswer(request);
 }
 
 bool checkIsNull(Uri uri, String key){
