@@ -9,7 +9,7 @@ const VERSION = '0.0.0 testing';
 const AUTHOR = 'Patryk Kisielewski';
 const BOT = 'ONLINE';
 
-sendWrongApikey(HttpRequest request) {
+void sendWrongApikey(HttpRequest request){
 	Map<String, String> map = new Map();
 	map['status'] = 'ERROR';
 	map['info'] = "wrong apikey";
