@@ -27,7 +27,7 @@ runServer() async {
 			case '/ask/':
 				if(!apiinfo[0]){
 					sendWrongApiKey(request.response);
-					log("Wrong apikey from "+request.connectionInfo.remoteAddress.address);
+					log("Wrong apikey from "+request.headers.value('X-Forwarded-For'));
 					break;
 				}
 				sendAnswer(request, apiinfo[1]);
