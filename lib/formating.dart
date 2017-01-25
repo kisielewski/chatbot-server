@@ -7,7 +7,7 @@ String two_char_format(int number){
 
 String logfileName(){
 	DateTime date = new DateTime.now();
-	return 'logs/chatbot_server_'+two_char_format(date.year)+'-'+two_char_format(date.month)+'-'+two_char_format(date.day)+'_'+two_char_format(date.hour)+'_'+two_char_format(date.minute)+'.log';
+	return 'logs/chatbot_server_'+two_char_format(date.year)+'-'+two_char_format(date.month)+'-'+two_char_format(date.day)+'_'+two_char_format(date.hour)+'_'+two_char_format(date.minute)+'_'+date.millisecond.toString()+'.log';
 }
 
 String currentDate(){
