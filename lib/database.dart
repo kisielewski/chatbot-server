@@ -7,5 +7,5 @@ void firstRecord(){
 }
 
 void insertAnswer(String key, String val){
-	database.writeAsStringSync(key+'|'+val+'|u'+'\r\n', mode: FileMode.APPEND);
+	database.writeAsStringSync(key.replaceAll(new RegExp(r'\|'), '')+'|'+val.replaceAll(new RegExp(r'\|'), '')+'|u'+'\r\n', mode: FileMode.APPEND);
 }
