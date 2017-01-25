@@ -7,7 +7,7 @@ List checkApiKey(String apikey){
 	String address = '';
 	List<String> list  = apikeys.readAsLinesSync();
 	for(int i = 0; i < list.length; i++){
-		if(list[i].split("|")[0] == apikey){
+		if(list[i].split("|")[1] == apikey){
 			is_apikey = true;
 			address = list[i].split("|")[2];
 			break;
