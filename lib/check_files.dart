@@ -1,6 +1,6 @@
 import 'dart:io';
 
-import 'package:chatbot_server/logfile.dart';
+import 'package:chatbot_server/log.dart';
 import 'package:chatbot_server/database.dart';
 import 'package:chatbot_server/apikeys.dart';
 
