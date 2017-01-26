@@ -72,7 +72,7 @@ void sendAnswer(HttpRequest request){
 	request.response.writeln(JSON.encode(map));
 	request.response.close();
 	if(!checkIsNull(request.uri, 'userquestion')) insertAnswer(request.uri.queryParameters['userquestion'], request.uri.queryParameters['useranswer']);
-	logAnswer(request);
+	logAnswer(request, apikey[1]);
 }
 
 bool checkIsNull(Uri uri, String key){

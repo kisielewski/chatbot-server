@@ -9,12 +9,12 @@ void log(String data) {
 	print(data);
 }
 
-void logAnswer(HttpRequest request){
+void logAnswer(HttpRequest request, String id){
 	String data = "ask|";
 	if(request.uri.queryParameters.containsKey('userquestion')) data += request.uri.queryParameters['userquestion'];
 	data += '|';
 	if(request.uri.queryParameters.containsKey('useranswer')) data += request.uri.queryParameters['useranswer'];
-	data += '|'+getIPAddress(request);
+	data += '|'+getIPAddress(request)+'|'+id;
 	log(data);
 }
 
