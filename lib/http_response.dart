@@ -43,9 +43,9 @@ void sendStatus(HttpRequest request){
 	map['server'] = new Map();
 	map['server']['version'] = VERSION;
 	map['server']['author'] = AUTHOR;
-	response.headers.add("Access-Control-Allow-Origin", apikey[2]);
-	response.writeln(JSON.encode(map));
-	response.close();
+	request.response.headers.add("Access-Control-Allow-Origin", apikey[2]);
+	request.response.writeln(JSON.encode(map));
+	request.response.close();
 }
 
 void sendAnswer(HttpRequest request){
