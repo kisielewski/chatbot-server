@@ -4,6 +4,7 @@ import 'dart:convert';
 import 'package:chatbot_server/database.dart';
 import 'package:chatbot_server/bot_select.dart';
 import 'package:chatbot_server/log.dart';
+import 'package:chatbot_server/apikeys.dart';
 
 const VERSION = '0.0.0 testing';
 const AUTHOR = 'Patryk Kisielewski';
@@ -30,24 +31,36 @@ sendNotFound(HttpRequest request){
 	request.response.close();
 }
 
-sendStatus(HttpResponse response, String apikey, String api){
+void sendStatus(HttpRequest request){
+  List apikey = checkApiKey(request.uri.queryParameters['apikey']);
+  if(apikey[0] == false){
+    sendWrongApikey(request);
+    return;
+  }
 	Map map = new Map();
 	map['status'] = 'OK';
 	map['bot'] = BOT;
 	map['server'] = new Map();
 	map['server']['version'] = VERSION;
 	map['server']['author'] = AUTHOR;
-	response.headers.add("Access-Control-Allow-Origin", api);
-	response..writeln(JSON.encode(map));
+	response.headers.add("Access-Control-Allow-Origin", apikey[2]);
+	response.writeln(JSON.encode(map));
 	response.close();
 }
 
-sendAnswer(HttpRequest request, String api){
+void sendAnswer(HttpRequest request){
+  List apikey = checkApiKey(request.uri.queryParameters['apikey']);
+  if(apikey[0] == false){
+    sendWrongApikey(request);
+    return;
+  }
 	Map map = new Map();
 	if(checkIsNull(request.uri, 'useranswer')){
 		map['status'] = 'ERROR';
-		map['info'] = "useranswer is null";
-		request.response..writeln(JSON.encode(map));
+    map['error'] = new Map();
+    map['error']['info'] = "useranswer is null";
+    map['error']['code'] = 3;
+		request.response.writeln(JSON.encode(map));
 		request.response.close();
 		return;
 	}
@@ -55,8 +68,8 @@ sendAnswer(HttpRequest request, String api){
 	map['data'] = new Map();
 	map['data']['botanswer'] = selectAnswer(request.uri.queryParameters['useranswer']);
 	map['data']['userquestion'] = map['data']['botanswer'];
-	request.response.headers.add("Access-Control-Allow-Origin", api);
-	request.response..writeln(JSON.encode(map));
+	request.response.headers.add("Access-Control-Allow-Origin", apikey[2]);
+	request.response.writeln(JSON.encode(map));
 	request.response.close();
 	if(!checkIsNull(request.uri, 'userquestion')) insertAnswer(request.uri.queryParameters['userquestion'], request.uri.queryParameters['useranswer']);
 	logAnswer(request);

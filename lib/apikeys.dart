@@ -4,6 +4,7 @@ File apikeys = new File('apikeys.chatbot');
 
 List checkApiKey(String apikey){
 	bool is_apikey = false;
+	String id = '';
 	String address = '';
 	List<String> list  = apikeys.readAsLinesSync();
 	for(int i = 0; i < list.length; i++){
@@ -13,5 +14,5 @@ List checkApiKey(String apikey){
 			break;
 		}
 	}
-	return [ is_apikey, address];
+	return [ is_apikey, id, address];
 }
