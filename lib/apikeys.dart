@@ -10,6 +10,7 @@ List checkApiKey(String apikey){
 	for(int i = 0; i < list.length; i++){
 		if(list[i].split("|")[1] == apikey){
 			is_apikey = true;
+			id = list[i].split("|")[0];
 			address = list[i].split("|")[2];
 			break;
 		}
