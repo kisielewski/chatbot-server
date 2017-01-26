@@ -2,7 +2,7 @@ import 'dart:io';
 
 File apikeys = new File('apikeys.chatbot');
 
-List checkApiKey(String apikey){
+List checkApikey(String apikey){
 	bool is_apikey = false;
 	String id = '';
 	String address = '';

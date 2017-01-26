@@ -32,7 +32,7 @@ sendNotFound(HttpRequest request){
 }
 
 void sendStatus(HttpRequest request){
-  List apikey = checkApiKey(request.uri.queryParameters['apikey']);
+  List apikey = checkApikey(request.uri.queryParameters['apikey']);
   if(apikey[0] == false){
     sendWrongApikey(request);
     return;
@@ -49,7 +49,7 @@ void sendStatus(HttpRequest request){
 }
 
 void sendAnswer(HttpRequest request){
-  List apikey = checkApiKey(request.uri.queryParameters['apikey']);
+  List apikey = checkApikey(request.uri.queryParameters['apikey']);
   if(apikey[0] == false){
     sendWrongApikey(request);
     return;
