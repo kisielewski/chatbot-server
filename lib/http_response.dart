@@ -14,7 +14,7 @@ void sendWrongApikey(HttpRequest request){
 	map['status'] = 'ERROR';
 	map['error'] = new Map();
 	map['error']['info'] = "wrong apikey";
-	map['error']['code'] = 1;
+	map['error']['code'] = 2;
 	request.response.writeln(JSON.encode(map));
 	request.response.close();
 	log("apikey|wrong|"+getIPAddress(request));
