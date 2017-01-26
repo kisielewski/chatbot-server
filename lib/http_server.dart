@@ -31,7 +31,7 @@ runServer() async {
 				sendAnswer(request, apiinfo[1]);
 				break;
 			default:
-				sendNotFound(request.response);
+				sendNotFound(request);
 		}
 	}
 }

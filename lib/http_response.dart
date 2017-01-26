@@ -20,12 +20,14 @@ void sendWrongApikey(HttpRequest request){
 	log("apikey|wrong|"+getIPAddress(request));
 }
 
-sendNotFound(HttpResponse response){
-	Map<String, String> map = new Map();
+sendNotFound(HttpRequest request){
+	Map map = new Map();
 	map['status'] = 'ERROR';
-	map['info'] = "wrong address";
-	response..writeln(JSON.encode(map));
-	response.close();
+	map['error'] = new Map();
+  map['error']['info'] = "wrong address";
+  map['error']['code'] = 1;
+	request.response.writeln(JSON.encode(map));
+	request.response.close();
 }
 
 sendStatus(HttpResponse response, String apikey, String api){
