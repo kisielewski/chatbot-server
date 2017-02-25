@@ -12,7 +12,7 @@ runAdminServer() async {
 	await for (HttpRequest request in admin_server) {
 		print(request.method);
 		print(request.toString());
-		print(request.requestedUri.toString());
+		print(request.uri.toString());
 
 	}
 }
