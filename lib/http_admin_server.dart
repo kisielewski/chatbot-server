@@ -13,9 +13,9 @@ runAdminServer() async {
 		print(request.method);
 		print(request.toString());
 
-		ContentType contentType = req.headers.contentType;
+		ContentType contentType = request.headers.contentType;
 
-		if (req.method == 'POST' && contentType != null && contentType.mimeType == 'application/json') {
+		if (request.method == 'POST' && contentType != null && contentType.mimeType == 'application/json') {
 			try {
 				var jsonString = await req.transform(UTF8.decoder).join();
 				await print(jsonString);
