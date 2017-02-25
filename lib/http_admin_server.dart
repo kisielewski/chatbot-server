@@ -12,5 +12,6 @@ runAdminServer() async {
 	await for (HttpRequest request in admin_server) {
 		print(request.method);
 		print(request.toString());
+		request.response.write("OK");
 	}
 }
