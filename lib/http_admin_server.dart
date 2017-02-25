@@ -13,5 +13,6 @@ runAdminServer() async {
 		print(request.method);
 		print(request.toString());
 		request.response.write("OK");
+		request.response.close();
 	}
 }
