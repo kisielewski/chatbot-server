@@ -19,9 +19,11 @@ runAdminServer() async {
 			try {
 				var jsonString = await req.transform(UTF8.decoder).join();
 				await print(jsonString);
+			} catch (e) {
+				request.response..statusCode = HttpStatus.INTERNAL_SERVER_ERROR
+					..write("Exception during file I/O: $e.")
+					..close();
 			}
 		}
-				request.response.write("OK");
-				request.response.close();
 	}
 }
