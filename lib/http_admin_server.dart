@@ -12,18 +12,7 @@ runAdminServer() async {
 	await for (HttpRequest request in admin_server) {
 		print(request.method);
 		print(request.toString());
+		print(request.requestedUri.toString());
 
-		ContentType contentType = request.headers.contentType;
-
-		if (request.method == 'POST' && contentType != null && contentType.mimeType == 'application/json') {
-			try {
-				var jsonString = await req.transform(UTF8.decoder).join();
-				await print(jsonString);
-			} catch (e) {
-				request.response..statusCode = HttpStatus.INTERNAL_SERVER_ERROR
-					..write("Exception during file I/O: $e.")
-					..close();
-			}
-		}
 	}
 }
