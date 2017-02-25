@@ -12,7 +12,17 @@ runAdminServer() async {
 	await for (HttpRequest request in admin_server) {
 		print(request.method);
 		print(request.toString());
-		request.response.write("OK");
-		request.response.close();
+
+		ContentType contentType = req.headers.contentType;
+
+		if (req.method == 'POST' && contentType != null && contentType.mimeType == 'application/json') {
+			try {
+				var jsonString = await req.transform(UTF8.decoder).join();
+				print(jsonString);
+			}
+
+				request.response.write("OK");
+				request.response.close();
+			}
 	}
 }
