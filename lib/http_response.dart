@@ -6,7 +6,7 @@ import 'package:chatbot_server/bot_select.dart';
 import 'package:chatbot_server/log.dart';
 import 'package:chatbot_server/apikeys.dart';
 
-const VERSION = 'v1.0';
+const VERSION = 'v1.1';
 const AUTHOR = 'Patryk Kisielewski';
 const BOT = 'ONLINE';
 
