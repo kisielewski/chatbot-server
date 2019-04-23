@@ -1,2 +1,6 @@
 name: chatbot_server
+version: 2.0.0
 description: Project of text bot
+environment:
+  sdk: '>=2.0.0 <3.0.0'
+

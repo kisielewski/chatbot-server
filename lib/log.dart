@@ -1,11 +1,11 @@
 import 'dart:io';
 
-import 'package:chatbot_server/formating.dart';
+import 'formating.dart';
 
 File logfile = new File(logfileName());
 
 void log(String data) {
-	logfile.writeAsStringSync(currentDate()+'|'+data+'\r\n', mode: FileMode.APPEND);
+	logfile.writeAsStringSync(currentDate()+'|'+data+'\r\n', mode: FileMode.append);
 	print(data);
 }
 

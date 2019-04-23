@@ -1,13 +1,13 @@
 import 'dart:io';
 
-import 'package:chatbot_server/log.dart';
-import 'package:chatbot_server/http_response.dart';
+import 'log.dart';
+import 'http_response.dart';
 
 HttpServer server;
 const PORT = 4041;
 
 runServer() async {
-	server = await HttpServer.bind(InternetAddress.ANY_IP_V4, PORT);
+	server = await HttpServer.bind(InternetAddress.anyIPv4, PORT);
 	log("server|start|"+PORT.toString());
 	await for (HttpRequest request in server) {
 		final String path = request.uri.path;
