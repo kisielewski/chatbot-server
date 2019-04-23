@@ -6,7 +6,7 @@ import 'bot_select.dart';
 import 'log.dart';
 import 'apikeys.dart';
 
-const VERSION = 'v1.1';
+const VERSION = 'v2.0.0';
 const AUTHOR = 'Patryk Kisielewski';
 const BOT = 'ONLINE';
 
