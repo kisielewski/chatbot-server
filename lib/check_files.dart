@@ -1,8 +1,8 @@
 import 'dart:io';
 
-import 'package:chatbot_server/log.dart';
-import 'package:chatbot_server/database.dart';
-import 'package:chatbot_server/apikeys.dart';
+import 'log.dart';
+import 'database.dart';
+import 'apikeys.dart';
 
 bool checkFiles(){
 	Directory logs = new Directory('logs');
